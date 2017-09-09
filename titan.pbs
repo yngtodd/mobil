@@ -1,0 +1,10 @@
+#PBS -A CSC237
+#PBS -N hyper_mobilenet 
+#PBS -l walltime=06:00:00
+#PBS -l nodes=128
+
+module unload xalt
+module load singularity
+
+cd /lustre/atlas/proj-shared/csc237/ygx/safari_zone/vision/pytorch/mnist/cnn 
+aprun -n ${PBS_NUM_NODES} -S 1 singularity exec galaxytitan.img python /lustre/atlas/proj-shared/csc237/ygx/safari_zone/vision/pytorch/cifar2/mobilenet/new_hyperdrive.py
